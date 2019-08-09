@@ -4,13 +4,15 @@ const Gameboard = (() => {
 
 const displayController = (() => { })();
 
+const gameCycleController = (() => { })();
+
 const Player = (name) => {
   const getName = () => name;
   let playerArray = [];
 
-  const newPosition = (pos) => {
+  const addPosition = (pos) => {
     playerArray.push(pos);
   };
 
-  return { newPosition };
+  return { addPosition };
 };
