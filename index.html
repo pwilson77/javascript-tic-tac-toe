@@ -8,16 +8,40 @@
     <title>Javascript TIC-TAC-TOE project</title>
   </head>
   <body>
-    <div class="container">
+    <div id="form">
+      <div class="form-style-6">
+        <h1>Fill in Player Details</h1>
+        <form action="#" novalidate>
+          <input
+            type="text"
+            name="field1"
+            placeholder="Player 1's name"
+            id="player1"
+          />
+          <input
+            type="text"
+            name="field2"
+            placeholder="Player 2's name"
+            id="player2"
+          />
+          <input
+            type="submit"
+            value="Start Game"
+            onclick="gameCycleController.gameStart()"
+          />
+        </form>
+      </div>
+    </div>
+    <div id="container">
       <div class="content-box">
         <div class="player1Box">
-          <h4>Player 1 your symbol is : <span>O</span></h4>
+          <h4>Player 1 your symbol is : <span id="player1Span"> O</span></h4>
         </div>
         <div class="gameAnnouncementBox">
-          <h1>Your turn <span> Player 1</span></h1>
+          <h1>Your turn <span id="playerSpan"> Player 1</span></h1>
         </div>
         <div class="player2Box">
-          <h4>Player 2 your symbol is : <span>X</span></h4>
+          <h4>Player 2 your symbol is : <span id="player2Span">X</span></h4>
         </div>
       </div>
       <div class="gameboard">
