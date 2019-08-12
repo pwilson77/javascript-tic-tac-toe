@@ -10,6 +10,14 @@
   align-items: center;
 }
 
+.board-flex {
+  display: flex; 
+}
+
+.board-hide {
+  display: none
+}
+
 .content-box {
   width: 100%;
   text-align: center;

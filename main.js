@@ -138,9 +138,8 @@ const gameCycleController = (() => { // eslint-disable-line no-unused-vars
     player2 = player(secondname.value, 'O');
     document.querySelector('.player1Box h4').innerText += player1.getName();
     document.querySelector('.player2Box h4').innerText += player2.getName();
-    document.getElementById('form').style.display = 'none';
-    
-    document.getElementById('container').style.display = 'flex';
+    document.getElementById('form').setAttribute('class', 'board-hide');
+    document.getElementById('container').setAttribute('class', 'board-flex');
 
   };
   return {
