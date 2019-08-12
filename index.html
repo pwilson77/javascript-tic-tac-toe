@@ -8,7 +8,7 @@
     <title>Javascript TIC-TAC-TOE project</title>
   </head>
   <body>
-    <div id="form">
+    <div id="form" style="display:flex">
       <div class="form-style-6">
         <h1>Fill in Player Details</h1>
         <form action="#" novalidate>
@@ -32,18 +32,19 @@
         </form>
       </div>
     </div>
-    <div id="container">
+    <div id="container" style="display:none">
       <div class="content-box">
         <div class="player1Box">
-          <h4>Player 1 your symbol is : <span id="player1Span"> X</span></h4>
+          <h4>Player 1 is: </h4><span id="player1Span"> X</span>
         </div>
         <div class="gameAnnouncementBox">
-          <h1>Your turn <span id="playerSpan"> Player 1</span></h1>
+          <h1>TIC-TAC-TOE</h1>
         </div>
         <div class="player2Box">
-          <h4>Player 2 your symbol is : <span id="player2Span">O</span></h4>
+          <h4>Player 2 is: </h4><span id="player2Span">O</span>
         </div>
       </div>
+      <h1 id="statusAlert"></h1>
       <div class="gameboard">
         <a href="#" class="gameboardslot" id="1" onclick="gameCycleController.gameLoop(this.id)"></a>
         <a href="#" class="gameboardslot" id="2" onclick="gameCycleController.gameLoop(this.id)"></a>
@@ -55,8 +56,9 @@
         <a href="#" class="gameboardslot" id="8" onclick="gameCycleController.gameLoop(this.id)"></a>
         <a href="#" class="gameboardslot" id="9" onclick="gameCycleController.gameLoop(this.id)"></a>
       </div>
+      <button id="reset" onclick="gameCycleController.reset()">Reset</button>
     </div>
-    <button id="reset">Reset</button>
+    
     <script src="main.js"></script>
   </body>
 </html>

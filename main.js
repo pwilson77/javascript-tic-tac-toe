@@ -1,39 +1,29 @@
 const player = (name, sym) => {
   const getName = () => name;
   const getSymbol = () => sym;
-  const playerArray = [];
 
-  const addPosition = (pos) => {
-    playerArray.push(pos);
-  };
-  return { addPosition, getSymbol, getName };
+  return { getSymbol, getName };
 };
 
-const gameCycleController = (() => {
-  const gameBoardArray = [];
-  const statusAlert = document.createElement('h1');
+const gameCycleController = (() => { // eslint-disable-line no-unused-vars
+  let gameBoardArray = [];
+  const statusAlert = document.getElementById('statusAlert');
   let player1;
   let player2;
   let currentPlayer;
   let count = 1;
   
-  const reset = () => {
-    gameBoardArray = [];
-    currentPlayer = player1;
-    count = 1;
-  }
-
   const win = () => {
     statusAlert.innerText = `${currentPlayer.getName()} won this game`;
-    document.body.appendChild(statusAlert);
   }
 
   const draw = () => {
     statusAlert.innerText = 'Not bad it is a draw';
-    document.body.appendChild(statusAlert);
   }
 
+  
   const gameStatus = () => {
+    /* eslint-disable */
     switch (true) {
       case gameBoardArray[0] === currentPlayer.getSymbol() && 
       (gameBoardArray[0] === gameBoardArray[1] && 
@@ -91,7 +81,6 @@ const gameCycleController = (() => {
   };
 
   const switchPlayer = (curPlayer) => {
-    console.log(`${curPlayer} that is the current player`);
     switch (curPlayer) {
       case 0:
         currentPlayer = player2;
@@ -106,7 +95,6 @@ const gameCycleController = (() => {
 
   const move = (pos, symbol) => {
     gameBoardArray[pos] = symbol;
-    console.log(gameBoardArray);
   }
 
   const renderGameArray = () => {
@@ -129,18 +117,35 @@ const gameCycleController = (() => {
     count += 1;
   }
 
+  const reset = () => {
+    gameBoardArray = [];
+    currentPlayer = player1;
+    count = 1;
+    statusAlert.innerText = '';
+    const gameBoard = [...document.querySelectorAll('.gameboard a')];
+    gameBoard.forEach((cell) => {
+      cell.innerHTML = '';
+      cell.setAttribute('onclick', 'gameCycleController.gameLoop(this.id)');
+    });
+
+  }
+
   const gameStart = () => {
     const firstname = document.getElementById('player1');
     const secondname = document.getElementById('player2');
+    
     player1 = player(firstname.value, 'X');
     player2 = player(secondname.value, 'O');
-    const form = document.getElementById('form');
-    form.style.display = 'none';
-    const board = document.getElementById('container');
-    board.style.display = 'flex';
+    document.querySelector('.player1Box h4').innerText += player1.getName();
+    document.querySelector('.player2Box h4').innerText += player2.getName();
+    document.getElementById('form').style.display = 'none';
+    
+    document.getElementById('container').style.display = 'flex';
+
   };
   return {
     gameStart,
     gameLoop,
+    reset,
   };
 })();
