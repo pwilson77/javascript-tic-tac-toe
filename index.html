@@ -35,25 +35,25 @@
     <div id="container">
       <div class="content-box">
         <div class="player1Box">
-          <h4>Player 1 your symbol is : <span id="player1Span"> O</span></h4>
+          <h4>Player 1 your symbol is : <span id="player1Span"> X</span></h4>
         </div>
         <div class="gameAnnouncementBox">
           <h1>Your turn <span id="playerSpan"> Player 1</span></h1>
         </div>
         <div class="player2Box">
-          <h4>Player 2 your symbol is : <span id="player2Span">X</span></h4>
+          <h4>Player 2 your symbol is : <span id="player2Span">O</span></h4>
         </div>
       </div>
       <div class="gameboard">
-        <a href="#" class="gameboardslot" value="1">X</a>
-        <a href="#" class="gameboardslot" value="2">0</a>
-        <a href="#" class="gameboardslot" value="3"></a>
-        <a href="#" class="gameboardslot" value="4"></a>
-        <a href="#" class="gameboardslot" value="5"></a>
-        <a href="#" class="gameboardslot" value="6"></a>
-        <a href="#" class="gameboardslot" value="7"></a>
-        <a href="#" class="gameboardslot" value="8"></a>
-        <a href="#" class="gameboardslot" value="9"></a>
+        <a href="#" class="gameboardslot" id="1" onclick="gameCycleController.gameLoop(this.id)"></a>
+        <a href="#" class="gameboardslot" id="2" onclick="gameCycleController.gameLoop(this.id)"></a>
+        <a href="#" class="gameboardslot" id="3" onclick="gameCycleController.gameLoop(this.id)"></a>
+        <a href="#" class="gameboardslot" id="4" onclick="gameCycleController.gameLoop(this.id)"></a>
+        <a href="#" class="gameboardslot" id="5" onclick="gameCycleController.gameLoop(this.id)"></a>
+        <a href="#" class="gameboardslot" id="6" onclick="gameCycleController.gameLoop(this.id)"></a>
+        <a href="#" class="gameboardslot" id="7" onclick="gameCycleController.gameLoop(this.id)"></a>
+        <a href="#" class="gameboardslot" id="8" onclick="gameCycleController.gameLoop(this.id)"></a>
+        <a href="#" class="gameboardslot" id="9" onclick="gameCycleController.gameLoop(this.id)"></a>
       </div>
     </div>
     <script src="main.js"></script>
