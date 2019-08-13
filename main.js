@@ -12,16 +12,12 @@ const gameCycleController = (() => { // eslint-disable-line no-unused-vars
   let player2;
   let currentPlayer;
   let count = 1;
-  
   const win = () => {
     statusAlert.innerText = `${currentPlayer.getName()} won this game`;
-  }
-
+  };
   const draw = () => {
     statusAlert.innerText = 'Not bad it is a draw';
-  }
-
-  
+  };
   const gameStatus = () => {
     /* eslint-disable */
     switch (true) {
@@ -140,8 +136,7 @@ const gameCycleController = (() => { // eslint-disable-line no-unused-vars
     document.querySelector('.player2Box h4').innerText += player2.getName();
     document.getElementById('form').setAttribute('class', 'board-hide');
     document.getElementById('container').setAttribute('class', 'board-flex');
-
-  };
+  }
   return {
     gameStart,
     gameLoop,
