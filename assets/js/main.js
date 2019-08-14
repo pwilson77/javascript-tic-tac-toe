@@ -28,60 +28,42 @@ const gameCycleController = (() => {
   const draw = () => {
     statusAlert.innerText = "Not bad it is a draw";
   };
+
+  const checkwinning = (a,b,c) => {
+    return gameBoardArray[a] === currentPlayer.sym &&
+    (gameBoardArray[a] === gameBoardArray[b] &&
+    gameBoardArray[b] === gameBoardArray[c] &&
+    gameBoardArray[a] === gameBoardArray[c])
+  };
+
   const gameStatus = () => {
     switch (true) {
-      case gameBoardArray[0] === currentPlayer.sym &&
-        (gameBoardArray[0] === gameBoardArray[1] &&
-          gameBoardArray[1] === gameBoardArray[2] &&
-          gameBoardArray[0] === gameBoardArray[2]):
+      case (count === 9):
+        draw()
+        break;
+      case checkwinning(0,1,2):
         win();
         break;
-      case gameBoardArray[3] === currentPlayer.sym &&
-        (gameBoardArray[3] === gameBoardArray[4] &&
-          gameBoardArray[4] === gameBoardArray[5] &&
-          gameBoardArray[3] === gameBoardArray[5]):
+      case checkwinning(3,4,5):
         win();
         break;
-      case gameBoardArray[6] === currentPlayer.sym &&
-        (gameBoardArray[6] === gameBoardArray[7] &&
-          gameBoardArray[7] === gameBoardArray[8] &&
-          gameBoardArray[6] === gameBoardArray[8]):
+      case checkwinning(6,7,8):
         win();
         break;
-      case gameBoardArray[0] === currentPlayer.sym &&
-        (gameBoardArray[0] === gameBoardArray[3] &&
-          gameBoardArray[0] === gameBoardArray[6] &&
-          gameBoardArray[3] === gameBoardArray[6]):
+      case checkwinning(0,3,6):
         win();
         break;
-      case gameBoardArray[1] === currentPlayer.sym &&
-        (gameBoardArray[1] === gameBoardArray[4] &&
-          gameBoardArray[4] === gameBoardArray[7] &&
-          gameBoardArray[7] === gameBoardArray[1]):
+      case checkwinning(1,4,7):
         win();
         break;
-      case gameBoardArray[2] === currentPlayer.sym &&
-        (gameBoardArray[2] === gameBoardArray[5] &&
-          gameBoardArray[5] === gameBoardArray[8] &&
-          gameBoardArray[2] === gameBoardArray[8]):
+      case checkwinning(2,5,8):
         win();
         break;
-      case gameBoardArray[0] === currentPlayer.sym &&
-        (gameBoardArray[0] === gameBoardArray[4] &&
-          gameBoardArray[4] === gameBoardArray[8] &&
-          gameBoardArray[0] === gameBoardArray[8]):
+      case checkwinning(0,4,8):
         win();
         break;
-      case gameBoardArray[2] === currentPlayer.sym &&
-        (gameBoardArray[2] === gameBoardArray[4] &&
-          gameBoardArray[4] === gameBoardArray[6] &&
-          gameBoardArray[2] === gameBoardArray[6]):
+      case checkwinning(2,4,6):
         win();
-        break;
-      default:
-        if (count >= 9) {
-          draw();
-        }
     }
   };
 
