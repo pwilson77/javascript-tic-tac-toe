@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <title>Javascript TIC-TAC-TOE project</title>
   </head>
   <body>
@@ -35,30 +35,22 @@
     <div id="container" class="board-hide">
       <div class="content-box">
         <div class="player1Box">
-          <h4>Player 1 is: </h4><span id="player1Span"> X</span>
+          <h4>Player 1 is:</h4>
+          <span id="player1Span"> X</span>
         </div>
         <div class="gameAnnouncementBox">
           <h1>TIC-TAC-TOE</h1>
         </div>
         <div class="player2Box">
-          <h4>Player 2 is: </h4><span id="player2Span">O</span>
+          <h4>Player 2 is:</h4>
+          <span id="player2Span">O</span>
         </div>
       </div>
       <h1 id="statusAlert"></h1>
-      <div class="gameboard">
-        <a href="#" class="gameboardslot" id="1" onclick="gameCycleController.gameLoop(this.id)"></a>
-        <a href="#" class="gameboardslot" id="2" onclick="gameCycleController.gameLoop(this.id)"></a>
-        <a href="#" class="gameboardslot" id="3" onclick="gameCycleController.gameLoop(this.id)"></a>
-        <a href="#" class="gameboardslot" id="4" onclick="gameCycleController.gameLoop(this.id)"></a>
-        <a href="#" class="gameboardslot" id="5" onclick="gameCycleController.gameLoop(this.id)"></a>
-        <a href="#" class="gameboardslot" id="6" onclick="gameCycleController.gameLoop(this.id)"></a>
-        <a href="#" class="gameboardslot" id="7" onclick="gameCycleController.gameLoop(this.id)"></a>
-        <a href="#" class="gameboardslot" id="8" onclick="gameCycleController.gameLoop(this.id)"></a>
-        <a href="#" class="gameboardslot" id="9" onclick="gameCycleController.gameLoop(this.id)"></a>
-      </div>
+      <div class="gameboard"></div>
       <button id="reset" onclick="gameCycleController.reset()">Reset</button>
     </div>
-    
-    <script src="main.js"></script>
+
+    <script src="assets/js/main.js"></script>
   </body>
 </html>
