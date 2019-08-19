@@ -1,9 +1,53 @@
 const player = (name, sym) => {
-  return { name, sym };
+  let playerMoves = [];
+  const move = (index) => {
+    playerMoves.push(index);
+    return index;
+  };
+
+  const getPlayerMoves = () => playerMoves;
+  return { name, sym, move, getPlayerMoves };
 };
 
+const gameBoard = (() => {
+  let gameBoardArray = new Array(9);
+  const winningCombo = [[1,2,3],[4,5,6],[7,8,9],[1,4,6],[2,5,7],[3,6,9],[1,5,9],[3,5,7]];
+
+  const updategameBoardArray = (pos, sym) => {
+    gameBoardArray[pos - 1] = sym;
+  };
+
+  const isgameBoardArrayFull = () => {
+    let isFilled;
+    for (let i = 1; i < gameBoardArray.length; i++) {
+      gameBoardArray[i] === undefined? isFilled = false : isFilled = true
+    }
+    return isFilled;
+  };
+
+  const checkwinning = (moves) => {
+    let t = '';
+    for (let i = 0; i < winningCombo.length; i++) {
+      t = winningCombo[i].every(val => moves.includes(val));
+      if (t)
+        break;
+    };
+    console.log(t);
+    return t;
+  }
+
+  const getGameBoardArray = () => gameBoardArray;
+
+  return {
+    updategameBoardArray,
+    isgameBoardArrayFull,
+    checkwinning,
+    getGameBoardArray
+  }
+})();
+
 const gameCycleController = (() => {
-  let gameBoardArray = [];
+  
   const statusAlert = document.getElementById("statusAlert");
   let player1;
   let player2;
@@ -28,45 +72,7 @@ const gameCycleController = (() => {
   const draw = () => {
     statusAlert.innerText = "Not bad it is a draw";
   };
-
-  const checkwinning = (a,b,c) => {
-    return gameBoardArray[a] === currentPlayer.sym &&
-    (gameBoardArray[a] === gameBoardArray[b] &&
-    gameBoardArray[b] === gameBoardArray[c] &&
-    gameBoardArray[a] === gameBoardArray[c])
-  };
-
-  const gameStatus = () => {
-    switch (true) {
-      case (count === 9):
-        draw()
-        break;
-      case checkwinning(0,1,2):
-        win();
-        break;
-      case checkwinning(3,4,5):
-        win();
-        break;
-      case checkwinning(6,7,8):
-        win();
-        break;
-      case checkwinning(0,3,6):
-        win();
-        break;
-      case checkwinning(1,4,7):
-        win();
-        break;
-      case checkwinning(2,5,8):
-        win();
-        break;
-      case checkwinning(0,4,8):
-        win();
-        break;
-      case checkwinning(2,4,6):
-        win();
-    }
-  };
-
+  
   const switchPlayer = curPlayer => {
     switch (curPlayer) {
       case 0:
@@ -80,14 +86,11 @@ const gameCycleController = (() => {
     }
   };
 
-  const move = (pos, symbol) => {
-    gameBoardArray[pos] = symbol;
-  };
-
   const renderGameArray = () => {
-    const gameBoard = [...document.querySelectorAll(".gameboard a")];
-    gameBoard.forEach((cell, i) => {
-      cell.innerText = gameBoardArray[i] || "";
+    const gameBoardd = [...document.querySelectorAll(".gameboard a")];
+    console.log(gameBoard.getGameBoardArray());
+    gameBoardd.forEach((cell, i) => {
+      cell.innerText = gameBoard.getGameBoardArray()[i] || "";
     });
   };
 
@@ -98,9 +101,13 @@ const gameCycleController = (() => {
 
     switchPlayer(detectPlayer);
     const symbol = currentPlayer.sym;
-    move(Number(boxId) - 1, symbol);
+    const pos = currentPlayer.move(Number(box.id));
+    console.log(pos+"posss");
+    gameBoard.updategameBoardArray(pos, symbol);
+    //gameBoard.isgameBoardArrayFull();
     renderGameArray();
-    gameStatus();
+
+    gameBoard.checkwinning(currentPlayer.getPlayerMoves());
     count += 1;
   }
 
