@@ -37,10 +37,18 @@ const resetdisplay = () => {
   });
 };
 
+const endPlay = () => {
+  const gameBoardd = [...document.querySelectorAll(".gameboard a")];
+  gameBoardd.forEach(cell => {
+    cell.removeAttribute("onclick");
+  });
+};
+
 export {
   initializeBoard,
   win,
   draw,
   renderGameArray,
   resetdisplay,
+  endPlay
 };

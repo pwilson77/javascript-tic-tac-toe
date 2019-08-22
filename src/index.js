@@ -1,6 +1,6 @@
 import player from './player';
 import gameBoard from './gameboard';
-import { initializeBoard, win, draw, renderGameArray, resetdisplay } from './display';
+import { initializeBoard, win, draw, renderGameArray, resetdisplay, endPlay } from './display';
 
 
 const gameCycleController = (() => {
@@ -35,6 +35,7 @@ const gameCycleController = (() => {
     
     if (gameBoard.checkwinning(currentPlayer.getPlayerMoves())){
       win(currentPlayer);
+      endPlay();
     }
     else if (!gameBoard.isgameBoardArrayFull()){
       draw();
