@@ -13,8 +13,8 @@ The game utilizes ES6 functions such as Factories and Modules to avoid using cla
 1. Follow this [link]()
 
 ### steps to play
-Visit the link above
-Enter names of players
-Play the game
+- Visit the link above
+- Enter names of players
+- Play the game
 
 May the best man win :wink:
