@@ -10,7 +10,7 @@ The game utilizes ES6 functions such as Factories and Modules to avoid using cla
 
 ### To view the project online
 
-1. Follow this [link]()
+1. Follow this [link](https://pwilson77.github.io/javascript-tic-tac-toe/dist/index.html)
 
 ### steps to play
 - Visit the link above
